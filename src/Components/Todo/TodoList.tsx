@@ -18,6 +18,19 @@ const TodoList: React.FC = () => {
     return (
         <div className="todo-list">
             <h2>Todo List</h2>
+            <div className="search-todo">
+                <input
+                    type="text"
+                    value={newTodo}
+                    onChange={(e) => setNewTodo(e.target.value)}
+                    placeholder="Search Todo"
+                />
+            </div>
+            <div>
+                {todos.map((todo, index) => (
+                    <TodoItem key={index} text={todo}/>
+                ))}
+            </div>
             <div className="todo-input">
                 <input
                     type="text"
@@ -26,11 +39,6 @@ const TodoList: React.FC = () => {
                     placeholder="New Todo"
                 />
                 <button onClick={addTodo}>Add</button>
-            </div>
-            <div>
-                {todos.map((todo, index) => (
-                    <TodoItem key={index} text={todo}/>
-                ))}
             </div>
         </div>
     );

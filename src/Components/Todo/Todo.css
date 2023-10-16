@@ -22,6 +22,20 @@
     width: 100%;
     margin: 1rem 0;
 }
+.todo-input button {
+    color: #fff;
+    border: none;
+    background-color: rgba(0, 0, 0, .2);
+    height: 45px;
+    border-radius: 5px;
+    width: 100px;
+    margin-left: 1rem;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+}
+.todo-input button:hover {
+    background-color: rgba(0, 0, 0, .3);
+}
 input[type=text],
 input[type=text]:focus{
     color: #fff;
@@ -30,6 +44,7 @@ input[type=text]:focus{
     height: 45px;
     border-radius: 5px;
     width: 250px;
+    padding: 20px;
 }
 .todo-item {
     display: flex;
@@ -41,4 +56,7 @@ input[type=text]:focus{
     border-radius: 5px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
     background-color: #423a6f;
+    width: 500px;
+    height: 40px;
+    overflow-y: scroll;
 }
