@@ -1,6 +1,8 @@
 // src/TodoList.tsx
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import TodoItem from './TodoItem';
+import './Todo.css'
+
 
 const TodoList: React.FC = () => {
     const [todos, setTodos] = useState<string[]>([]);
@@ -14,18 +16,20 @@ const TodoList: React.FC = () => {
     };
 
     return (
-        <div>
+        <div className="todo-list">
             <h2>Todo List</h2>
-            <input
-                type="text"
-                value={newTodo}
-                onChange={(e) => setNewTodo(e.target.value)}
-                placeholder="New Todo"
-            />
-            <button onClick={addTodo}>Add</button>
+            <div className="todo-input">
+                <input
+                    type="text"
+                    value={newTodo}
+                    onChange={(e) => setNewTodo(e.target.value)}
+                    placeholder="New Todo"
+                />
+                <button onClick={addTodo}>Add</button>
+            </div>
             <div>
                 {todos.map((todo, index) => (
-                    <TodoItem key={index} text={todo} />
+                    <TodoItem key={index} text={todo}/>
                 ))}
             </div>
         </div>

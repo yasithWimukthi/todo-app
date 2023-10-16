@@ -3,7 +3,7 @@ import React from 'react';
 
 const TopNav: React.FC = () => {
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-success">
+        <nav className="navbar navbar-expand-lg navbar-light" style={{backgroundColor:'#423a6f'}}>
             <div className="container">
                 <a className="navbar-brand text-white" href="/">TODO APP</a>
                 <button
