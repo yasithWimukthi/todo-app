@@ -9,7 +9,7 @@ interface TodoItemProps {
 const TodoItem: React.FC<TodoItemProps> = ({ todo, category }) => {
     return (
         <div className="todo-item">
-            {todo}
+            {todo} {category}
         </div>
     );
 };
