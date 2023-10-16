@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import TodoList from "./Components/Todo/TodoList";
 import Header from "./Components/Header/Header";
 
