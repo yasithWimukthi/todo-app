@@ -2,6 +2,25 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## About
+This is a simple todo app built with React. It uses the useState hook to manage state and the useEffect hook to persist state to local storage.
+
+## Features
+- Add a todo
+- Search for a todo
+- Add to categories
+
+## Running the app
+- Clone the repo
+- Run `npm install`
+- Run `npm start`
+- Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Enjoy!
+
+## Requirements
+- Node.js
+- npm
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -29,23 +48,5 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-## About
-This is a simple todo app built with React. It uses the useState hook to manage state and the useEffect hook to persist state to local storage.
-
-## Features
-- Add a todo
-- Search for a todo
-- Add to categories
-
-## Running the app
-- Clone the repo
-- Run `npm install`
-- Run `npm start`
-- Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-- Enjoy!
-
-## Requirements
-- Node.js
-- npm
 
 
