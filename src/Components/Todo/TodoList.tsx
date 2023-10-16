@@ -50,6 +50,12 @@ const TodoList: React.FC = () => {
                 setTodos(filteredTodos);
             }
         }
+        // if search key is empty then show all todos
+        else {
+            if (todos) {
+                setTodos(JSON.parse(todos));
+            }
+        }
     },[searchKey]);
 
     // fetch todos from local storage
@@ -78,7 +84,7 @@ const TodoList: React.FC = () => {
                     placeholder="Search By Category"
                 />
             </div>
-            <div>
+            <div className="todo-item-list">
                 {todos.map((todo, index) => (
                     <TodoItem key={index} todo={todo.todo} category={todo.category} />
                 ))}
@@ -97,7 +103,7 @@ const TodoList: React.FC = () => {
                     onChange={(e) => setNewTodo({ ...newTodo, category: e.target.value })}
                     placeholder="Todo Category"
                 />
-                <button onClick={addTodo}>Add</button>
+                <button className="add-btn" onClick={addTodo}>Add</button>
             </div>
         </div>
     );
