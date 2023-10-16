@@ -1,4 +1,5 @@
 import React from 'react';
+import './Todo.css'
 
 interface TodoItemProps {
     text: string;
@@ -6,8 +7,8 @@ interface TodoItemProps {
 
 const TodoItem: React.FC<TodoItemProps> = ({ text }) => {
     return (
-        <div>
-            <input type="checkbox" /> {text}
+        <div className="todo-item">
+            {text}
         </div>
     );
 };
