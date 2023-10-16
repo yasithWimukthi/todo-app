@@ -2,13 +2,14 @@ import React from 'react';
 import './Todo.css'
 
 interface TodoItemProps {
-    text: string;
+    todo: string;
+    category: string;
 }
 
-const TodoItem: React.FC<TodoItemProps> = ({ text }) => {
+const TodoItem: React.FC<TodoItemProps> = ({ todo, category }) => {
     return (
         <div className="todo-item">
-            {text}
+            {todo}
         </div>
     );
 };
