@@ -8,11 +8,10 @@ const TodoList: React.FC = () => {
         todo: '',
         category: '',
     });
-    const [searchTodo, setSearchTodo] = useState<{ todo: string; category: string }>({
+    const [searchKey, setSearchKey] = useState<{ todo: string; category: string }>({
         todo: '',
         category: '',
     });
-
 
     // add todo to local storage
     const addTodo = () => {
@@ -23,6 +22,35 @@ const TodoList: React.FC = () => {
             setNewTodo({ todo: '', category: '' });
         }
     };
+
+    // search todo
+    useEffect(() => {
+        const todos = localStorage.getItem('todos');
+        // if search key is only todo then search by todo
+        if (searchKey.todo.trim() !== '' && searchKey.category.trim() === '') {
+            if (todos) {
+                const todosArray = JSON.parse(todos);
+                const filteredTodos = todosArray.filter((todo: { todo: string; category: string }) => todo.todo.includes(searchKey.todo));
+                setTodos(filteredTodos);
+            }
+        }
+        // if search key is only category then search by category
+        else if (searchKey.todo.trim() === '' && searchKey.category.trim() !== '') {
+            if (todos) {
+                const todosArray = JSON.parse(todos);
+                const filteredTodos = todosArray.filter((todo: { todo: string; category: string }) => todo.category.includes(searchKey.category));
+                setTodos(filteredTodos);
+            }
+        }
+        // if search key is both todo and category then search by both todo and category
+        else if (searchKey.todo.trim() !== '' && searchKey.category.trim() !== '') {
+            if (todos) {
+                const todosArray = JSON.parse(todos);
+                const filteredTodos = todosArray.filter((todo: { todo: string; category: string }) => todo.todo.includes(searchKey.todo) && todo.category.includes(searchKey.category));
+                setTodos(filteredTodos);
+            }
+        }
+    },[searchKey]);
 
     // fetch todos from local storage
     useEffect(() => {
@@ -38,15 +66,15 @@ const TodoList: React.FC = () => {
             <div className="search-todo">
                 <input
                     type="text"
-                    value={searchTodo.todo}
-                    onChange={(e) => setSearchTodo({...searchTodo,todo: e.target.value})}
+                    value={searchKey.todo}
+                    onChange={(e) => setSearchKey({...searchKey,todo: e.target.value})}
                     placeholder="Search Todo"
                 />
                 <input
                     className="category-input"
                     type="text"
-                    value={searchTodo.category}
-                    onChange={(e) => setSearchTodo({...searchTodo,category: e.target.value})}
+                    value={searchKey.category}
+                    onChange={(e) => setSearchKey({...searchKey,category: e.target.value})}
                     placeholder="Search By Category"
                 />
             </div>
